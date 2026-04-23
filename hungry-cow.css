@@ -88,9 +88,18 @@ h1 {
 
 .controls {
   display: grid;
-  grid-template-columns: repeat(5, minmax(80px, 1fr));
+  grid-template-columns: repeat(3, 1fr) minmax(80px, 1.5fr);
+  grid-template-areas:
+    ". up . start"
+    "left down right start";
   gap: 10px;
 }
+
+#upBtn    { grid-area: up; }
+#leftBtn  { grid-area: left; }
+#downBtn  { grid-area: down; }
+#rightBtn { grid-area: right; }
+#startBtn { grid-area: start; }
 
 button {
   border: 1px solid #999;
@@ -181,18 +190,4 @@ button:active {
     min-height: 30px;
     font-size: clamp(18px, 5vw, 25px);
   }
-
-  .controls {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-      ". up ."
-      "left down right"
-      "start start start";
-  }
-
-  #upBtn    { grid-area: up; }
-  #leftBtn  { grid-area: left; }
-  #downBtn  { grid-area: down; }
-  #rightBtn { grid-area: right; }
-  #startBtn { grid-area: start; }
 }
