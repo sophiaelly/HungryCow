@@ -183,6 +183,16 @@ button:active {
   }
 
   .controls {
-    grid-template-columns: repeat(3, minmax(90px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      ". up ."
+      "left down right"
+      "start start start";
   }
+
+  #upBtn    { grid-area: up; }
+  #leftBtn  { grid-area: left; }
+  #downBtn  { grid-area: down; }
+  #rightBtn { grid-area: right; }
+  #startBtn { grid-area: start; }
 }
