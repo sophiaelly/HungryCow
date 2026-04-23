@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hungry Cow</title>
+    <meta
+      name="description"
+      content="A simple emoji arcade game: move the cow, eat grass, avoid walls and joints."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./hungry-cow.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <h1>Hungry Cow</h1>
+        <div class="stats">
+          <p>Score: <strong id="score">0</strong></p>
+          <p>High score: <strong id="highScore">0</strong></p>
+          <p>Time left: <strong id="time">100s</strong></p>
+        </div>
+      </header>
+
+      <section class="arena-card" aria-label="Game area">
+        <div id="arena" class="arena" role="img" aria-label="Hungry Cow game grid"></div>
+      </section>
+
+      <section class="controls" aria-label="Controls">
+        <button id="upBtn" type="button">Up</button>
+        <button id="leftBtn" type="button">Left</button>
+        <button id="downBtn" type="button">Down</button>
+        <button id="rightBtn" type="button">Right</button>
+        <button id="startBtn" type="button" class="start">Start / Reset</button>
+      </section>
+
+      <p id="status" class="status">Press Start / Reset to begin.</p>
+      <p class="legend">🌱 grass = walk cell | 🚬 joint = 2x score boost | 🧱 walls move randomly and block you | hidden bombs move by difficulty (soft/semi/hard) = game over | 🥩 steak = dead cow</p>
+    </main>
+
+    <div id="difficultyModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="difficultyTitle">
+        <h2 id="difficultyTitle">Choose Difficulty</h2>
+        <p class="modal-text">Select bomb difficulty before the game starts.</p>
+        <div class="modal-buttons">
+          <button id="diffSoftBtn" type="button">Soft</button>
+          <button id="diffSemiBtn" type="button">Semi</button>
+          <button id="diffHardBtn" type="button">Hard</button>
+        </div>
+        <button id="diffCancelBtn" type="button" class="modal-cancel">Cancel</button>
+      </div>
+    </div>
+
+    <script src="./hungry-cow.js"></script>
+  </body>
+</html>

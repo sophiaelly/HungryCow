@@ -1,0 +1,188 @@
+:root {
+  --bg-a: #f4edcf;
+  --bg-b: #f4edcf;
+  --card: #f7f0d6;
+  --line: #c9bf9d;
+  --ink: #222222;
+  --good: #4b8a41;
+  --bad: #b0402f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg-a), var(--bg-b));
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.app {
+  width: min(680px, 100%);
+  display: grid;
+  gap: 12px;
+}
+
+.hud {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 14px;
+  box-shadow: none;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+  color: #202020;
+  letter-spacing: 0.01em;
+}
+
+.stats {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.stats p {
+  margin: 0;
+  font-weight: 800;
+}
+
+.arena-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 8px;
+  box-shadow: none;
+}
+
+.arena {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border: 1px solid #d9cfab;
+  border-radius: 0;
+  background: #efe5c1;
+}
+
+.cell {
+  aspect-ratio: 1;
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  font-size: clamp(20px, 2.8vw, 30px);
+  border-radius: 0;
+  border-right: 1px solid #e4d7af;
+  border-bottom: 1px solid #e4d7af;
+  background: #f5edcf;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(80px, 1fr));
+  gap: 10px;
+}
+
+button {
+  border: 1px solid #999;
+  border-radius: 0;
+  padding: 11px 8px;
+  cursor: pointer;
+  font: 900 0.92rem "Nunito", sans-serif;
+  color: #222;
+  background: #e9e9e9;
+}
+
+button.start {
+  background: #e1e1e1;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.status {
+  margin: 0;
+  font-weight: 900;
+  min-height: 1.4em;
+}
+
+.status.dead {
+  color: var(--bad);
+}
+
+.status.live {
+  color: var(--good);
+}
+
+.legend {
+  margin: 0;
+  font-weight: 700;
+  color: #333;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #00000055;
+  display: grid;
+  place-items: center;
+  z-index: 20;
+  padding: 16px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-card {
+  width: min(420px, 95vw);
+  background: #f7f0d6;
+  border: 1px solid #b9ad88;
+  padding: 16px;
+}
+
+.modal-card h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.modal-text {
+  margin: 8px 0 12px;
+  font-weight: 700;
+}
+
+.modal-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(70px, 1fr));
+  gap: 8px;
+}
+
+.modal-cancel {
+  margin-top: 10px;
+  width: 100%;
+}
+
+@media (max-width: 680px) {
+  .app {
+    width: min(96vw, 520px);
+  }
+
+  .cell {
+    min-height: 30px;
+    font-size: clamp(18px, 5vw, 25px);
+  }
+
+  .controls {
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+  }
+}
